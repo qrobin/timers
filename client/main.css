@@ -1,0 +1,267 @@
+body,
+html {
+    margin: 0;
+    padding: 0;
+    background: #7d8cb3;
+    background-repeat: no-repeat;
+}
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    color: white;
+}
+
+
+/* HTML5 display-role reset for older browsers */
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
+}
+
+body {
+    line-height: 1;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+blockquote,
+q {
+    quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: '';
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+a,
+a:active,
+a:visited {
+    text-decoration: none;
+    color: white;
+}
+
+#root_wrapper {
+    background: #4b7af2;
+    min-height: 100%;
+    position: absolute;
+    width: 100%;
+    background: -moz-linear-gradient(-45deg, #4b7af2 0%, #47caff 100%);
+    background: -webkit-linear-gradient(-45deg, #4b7af2 0%, #47caff 100%);
+    background: linear-gradient(135deg, #4b7af2 0%, #47caff 100%);
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#4b7af2', endColorstr='#47caff', GradientType=1);
+    color: white;
+    background-repeat: no-repeat;
+    font-family: sans-serif;
+    font-weight: 100;
+}
+
+/****************************/
+
+.fade-appear {
+    opacity: 0.01;
+    pointer-events: none;
+}
+
+.fade-appear.fade-appear-active {
+    opacity: 1;
+    transition: opacity 1s ease-in;
+    pointer-events: none;
+}
+
+.fade-enter {
+    opacity: 0.01;
+    pointer-events: none;
+}
+
+.fade-enter.fade-enter-active {
+    opacity: 1;
+    transition: opacity .4s ease-in;
+    pointer-events: none;
+}
+
+/****************************/
+
+.fade_rel-appear {
+    opacity: 0.01;
+    transform: scale3d(1, 0.8, 1);
+    pointer-events: none;
+}
+
+.fade_rel-appear.fade_rel-appear-active {
+    opacity: 1;
+    transform: scale3d(1, 1, 1);
+    transition: all .6s ease-in-out;
+    pointer-events: none;
+}
+
+.fade_rel-enter {
+    opacity: 0.01;
+    transform: scale3d(1, 0.8, 1);
+    pointer-events: none;
+}
+
+.fade_rel-enter.fade_rel-enter-active {
+    opacity: 1;
+    transform: scale3d(1, 1, 1);
+    transition: all .6s ease-in-out;
+    pointer-events: none;
+}
+
+.fade_rel-leave {
+    opacity: 1;
+    transform: scale3d(1, 1, 1);
+    transition: all .6s ease-in-out;
+    pointer-events: none;
+}
+
+.fade_rel-leave.fade_rel-leave-active {
+    opacity: 0.01;
+    transform: scale3d(1, 0.8, 1);
+    pointer-events: none;
+}
+
+/*****************************/
+
+.ripple::after {
+  content:' ';
+  /*align-self: center;*/
+  position: absolute;
+  z-index:10;
+    left: -25px;
+    top: -38px;
+    width:100px;
+    height:100px;
+    transform: scale(0);
+  background-color: #3100ff;
+  border-radius: 50%;
+  animation-name:'_ripple';
+  animation-duration: 1s;
+  animation-timing-function: ease;
+  animation-delay: 0s;
+  animation-iteration-count: 1;
+  animation-direction: reverse;
+  -webkit-animation-name:'_ripple';
+  -webkit-animation-duration: 1s;
+  -webkit-animation-timing-function: ease;
+  -webkit-animation-delay: 0s;
+  -webkit-animation-iteration-count: 1;
+  -webkit-animation-direction: normal;
+}
+
+@keyframes _ripple {
+   0% {
+    transform: scale(0);
+    opacity:.5;
+  }
+  100% {
+    transform: scale(.5);
+    opacity: 0;
+  }
+}

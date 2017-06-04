@@ -1,0 +1,220 @@
+.modal_bg {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0,0,0,0.5);
+  opacity: 0;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  -webkit-transition: opacity 0.3s 0.1s, z-index 0s 0.4s;
+  transition: opacity 0.3s 0.1s, z-index 0s 0.4s;
+}
+.modal_bg.open {
+  z-index: 1;
+  opacity: 1;
+  -webkit-transition: opacity 0.3s 0.1s;
+  transition: opacity 0.3s 0.1s;
+}
+
+.modal {
+  position: fixed;
+  width: 500px;
+  /*height: 200px;*/
+  background: #fff;
+  padding: 10px 30px;
+  border-radius: 4px;
+  -webkit-transform: translateY(-10%);
+          transform: translateY(-10%);
+  -webkit-transform-origin: bottom;
+          transform-origin: bottom;
+  -webkit-transition: opacity 0.3s 0.1s, z-index 0s 0.4s, -webkit-transform 0.24s ease-in-out 0.14s;
+  transition: opacity 0.3s 0.1s, z-index 0s 0.4s, -webkit-transform 0.24s ease-in-out 0.14s;
+  transition: transform 0.24s ease-in-out 0.14s, opacity 0.3s 0.1s, z-index 0s 0.4s;
+  transition: transform 0.24s ease-in-out 0.14s, opacity 0.3s 0.1s, z-index 0s 0.4s, -webkit-transform 0.24s ease-in-out 0.14s;
+  opacity: 0;
+  z-index: -1;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+.modal.shown {
+  z-index: 5;
+  opacity: 1;
+  -webkit-transform: translate(-50%, -60%);
+          transform: translate(-50%, -60%);
+  -webkit-transition: opacity 0.3s 0.1s, z-index 0s, -webkit-transform 0.24s ease-in-out;
+  transition: opacity 0.3s 0.1s, z-index 0s, -webkit-transform 0.24s ease-in-out;
+  transition: transform 0.24s ease-in-out, opacity 0.3s 0.1s, z-index 0s;
+  transition: transform 0.24s ease-in-out, opacity 0.3s 0.1s, z-index 0s, -webkit-transform 0.24s ease-in-out;
+}
+
+.modal * {
+    color: #444;
+    font-size: 20px;
+}
+input {
+    border: none;
+    border-bottom: solid 2px #686868;
+    outline: 0px;
+    background: transparent;
+}
+label {
+    margin: 0 10px 0 0 !important;
+}
+.input-group {
+    margin: 30px 0;
+}
+.create-btn {
+    background-color: #0ea46b;
+    border: solid 1px white;
+    display: block;
+    width: 100px;
+    text-align: center;
+    border-radius: 4px;
+    padding: 10px 20px;
+    margin: 30px auto;
+    transition: background-color .16s ease-in-out;
+    cursor: pointer;
+}
+
+.create-btn:hover {
+    background-color: #16cd8c;
+}
+
+.timers-list {
+    max-width: 800px;
+    margin: 20px auto;
+}
+
+.adminListItem {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 18px;
+    padding: 10px 0;
+}
+
+.adminListItem>.icon {
+    width: 50px;
+    font-size: 25px;
+    text-align: center;
+    transition: transform .12s ease-in-out;
+    cursor: pointer;
+}
+
+.adminListItem>.name {
+    width: 260px;
+    cursor: pointer;
+}
+.adminListItem>.time {
+    width: 120px;
+}
+
+.adminList {
+    padding: 80px 0;
+}
+.stops * {
+    color: #444;
+    font-size: 18px;
+}
+
+.stop-item {
+    padding: 8px;
+}
+
+.rc-collapse {
+    background-color: transparent !important;
+    border: none !important;
+}
+.rc-collapse > .rc-collapse-item > .rc-collapse-header {
+    color: white !important;
+}
+
+.admin-panel {
+    padding: 80px 20px;
+}
+
+.mainPage {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.admin-panel-header {
+    font-size: 32px;
+    text-align: center;
+}
+
+hr {
+    border: solid 1px white;
+}
+
+.mainTitle {
+    font-size: 32px;
+    text-align: center;
+    margin: 100px 0 20px;
+}
+
+.timer {
+    padding: 50px 10vw;
+    font-size: 18px;
+    line-height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.timer .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.timer .title {
+    font-size: 50px;
+    margin: 20px 0;
+}
+
+.timer .controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: calc(50% + 300px);
+    margin: 50px 0 0 0;
+}
+
+.timer .note-btn {
+    margin: 0 30px;
+    background-color: #ee5454;
+    transition: background-color .13s ease-in-out;
+}
+
+.timer .note-btn:hover {
+    margin: 0 30px;
+    background-color: #f78282;
+}
+
+.timer .icon {
+    margin: 0 30px;
+    font-size: 30px;
+}
+
+.timer .stops-list {
+    margin: 30px 0;
+}
+
+.timer .stop-item {
+    padding: 3px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.timer .stop-item * {
+    margin: 0 20px;
+}
