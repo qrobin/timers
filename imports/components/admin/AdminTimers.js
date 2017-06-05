@@ -47,7 +47,11 @@ class _Timer extends Component {
     _addStop = (e) => {
         e.preventDefault();
         const { it } = this.props;
-        Meteor.call('addStop', it._id, 'Admin');
+        if (it.running) {
+            Meteor.call('addStop', it._id, 'Admin');
+        } else {
+            alert('Timer is not currently available to make notes. Start it to keep splitting.');
+        }
     }
 
     _goTimer = (url) => {

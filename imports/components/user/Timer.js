@@ -120,7 +120,11 @@ class Timer extends Component {
         e.preventDefault();
         const { it } = this.props;
         const username = this.state.username;
-        Meteor.call('addStop', it._id, username);
+        if (it.running) {
+            Meteor.call('addStop', it._id, username);
+        } else {
+            alert('Timer is not currently available to make notes.');
+        }
     }
 
     _removeStop = (e, _id, index) => {
@@ -157,7 +161,13 @@ class Timer extends Component {
                             <div className='header'>
                                 <div className='left'>
                                     <h1>{it.name}</h1>
-                                    <h1>In Progress: {moment.utc(it.passed).format('HH:mm:ss.S')}</h1>
+                                    {
+                                        it.stopped ?
+                                            <h1>Timer is stopped</h1> :
+                                        !it.running ?
+                                            <h1>Timer is paused</h1> :
+                                            <h1>In Progress: {moment.utc(it.passed).format('HH:mm:ss.S')}</h1>
+                                    }
                                 </div>
                                 <div className='right'>
                                     <h1>{this.state.username}</h1>
@@ -167,16 +177,16 @@ class Timer extends Component {
                             <h1>Pess the button to make a note of time</h1>
                             <div className='controls'>
                                 {isAdmin ?
-                            it.running ?
-                                <a className='icon' onClick={this._pauseTimer} href=''>
-                                    <i className='fa fa-pause' aria-hidden='true' />
-                                </a>
-                            :
-                                <a className='icon' onClick={this._startTimer} href=''>
-                                    <i className='fa fa-play-circle-o' aria-hidden='true' />
-                                </a>
-                            : null
-                        }
+                                it.running ?
+                                    <a className='icon' onClick={this._pauseTimer} href=''>
+                                        <i className='fa fa-pause' aria-hidden='true' />
+                                    </a>
+                                :
+                                    <a className='icon' onClick={this._startTimer} href=''>
+                                        <i className='fa fa-play-circle-o' aria-hidden='true' />
+                                    </a>
+                                : null
+                            }
                                 <a className='create-btn note-btn' onClick={this._addStop} href=''>Note</a>
                                 {isAdmin ?
                         it.stopped ?
